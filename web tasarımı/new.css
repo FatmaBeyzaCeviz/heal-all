@@ -1,0 +1,44 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #ecd7b1; color: #333; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+
+/* NAVIGATION */
+nav { position: fixed; top: 0; width: 100%; background-color: #ead8b7; padding: 15px 0; display: flex; justify-content: center; gap: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 10000; }
+nav a { text-decoration: none; color: #333; font-weight: bold; padding: 10px 25px; border: 2px solid #4CAF50; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+nav a:hover { background: #4CAF50; color: white; }
+
+/* MAIN CONTENT */
+main { flex: 1; max-width: 1100px; margin: 100px auto 40px; padding: 0 20px; width: 100%; }
+.page-content { display: none; opacity: 0; animation: fadeIn 0.5s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* HOME COMPONENTS */
+.banner { text-align: center; padding: 60px 20px; background-color: #eaa64d; border-radius: 12px; color: white; margin-bottom: 25px; }
+.slim-motivation { background: #d78f57; color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+.home-info-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px; }
+.info-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.info-card-img { width: 100%; height: 180px; }
+.info-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.info-card-text { padding: 20px; text-align: center; }
+.health-tip-box { background: white; border-left: 5px solid #4CAF50; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+/* RECIPES */
+.meal-strip { background-color: #d78f57; color: white; padding: 12px 25px; font-weight: bold; margin: 30px 0 20px; border-radius: 8px; }
+.horizontal-card { display: flex; background: white; border-radius: 15px; overflow: hidden; text-decoration: none; color: inherit; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+.horizontal-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.card-image { flex: 0 0 35%; height: 180px; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+.card-content { flex: 1; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+.card-content p { color: #666; font-size: 0.95rem; margin: 5px 0; }
+.recipe-meta { display: flex; gap: 10px; margin-top: 10px; font-weight: bold; color: #d78f57; }
+
+/* ABOUT & CONTACT */
+.about-section, .contact-section { background: white; padding: 40px; border-radius: 15px; text-align: center; }
+.about-image-container { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.chef-image { width: 100%; height: 100%; object-fit: cover; }
+.about-text-content p { margin-bottom: 15px; line-height: 1.6; }
+.contact-info-text { margin-bottom: 20px; line-height: 1.8; color: #444; font-weight: 500; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; }
+.submit-btn { background: #4CAF50; color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
+.success-box { background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; margin-top: 20px; }
+
+.site-footer { background: white; padding: 30px; text-align: center; border-top: 1px solid #eee; margin-top: auto; }

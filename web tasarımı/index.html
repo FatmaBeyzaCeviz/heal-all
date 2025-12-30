@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heal All - Healthy Recipes</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <nav>
+        <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
+        <a href="javascript:void(0)" onclick="showPage('recipes')">Recipes</a>
+        <a href="javascript:void(0)" onclick="showPage('about')">About Us</a>
+        <a href="javascript:void(0)" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <main>
+        <div id="home-page" class="page-content">
+            <section class="banner">
+                <h2>Your Journey to Better Health Starts Here</h2>
+                <p>Discover recipes that nourish your body and delight your soul.</p>
+            </section>
+
+            <div class="slim-motivation">
+                <div class="motivation-text">
+                    <h3>"Let food be thy medicine, and medicine be thy food."</h3>
+                    <p>- Hippocrates</p>
+                </div>
+            </div>
+
+            <div class="home-info-section">
+                <div class="info-card card-natural">
+                    <div class="info-card-img"><img src="natural.jpg" alt="Natural"></div>
+                    <div class="info-card-text">
+                        <h3>Natural Ingredients</h3>
+                        <p>We focus on whole, unprocessed foods to ensure maximum nutrients.</p>
+                    </div>
+                </div>
+                <div class="info-card card-easy">
+                    <div class="info-card-img"><img src="cooking.jpg" alt="Easy"></div>
+                    <div class="info-card-text">
+                        <h3>Easy Cooking</h3>
+                        <p>Healthy eating designed for busy lifestyles and simple kitchens.</p>
+                    </div>
+                </div>
+                <div class="info-card card-macros">
+                    <div class="info-card-img"><img src="macros.jpg" alt="Macros"></div>
+                    <div class="info-card-text">
+                        <h3>Balanced Macros</h3>
+                        <p>Every recipe provides a healthy balance of proteins, fats, and carbs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-tip-box">
+                <h3>💡 Health Tip of the Day</h3>
+                <p>Stay hydrated! Drinking water 30 minutes before a meal can improve digestion and help with weight management.</p>
+            </div>
+        </div>
+
+        <div id="recipes-page" class="page-content" style="display:none;">
+            <div class="meal-strip">BREAKFAST</div>
+            <div class="meal-container">
+                <a href="recipe-b1.html" class="horizontal-card">
+                    <div class="card-image"><img src="breakfast1.jpg" alt="Breakfast 1"></div>
+                    <div class="card-content">
+                        <h3>Blueberry Oatmeal Bowl</h3>
+                        <p>A fiber-rich start with organic blueberries and roasted walnuts.</p>
+                        <div class="recipe-meta"><span>⏱ 10 Mins</span><span>🔥 320 Kcal</span></div>
+                    </div>
+                </a>
+                <a href="recipe-b2.html" class="horizontal-card">
+                    <div class="card-image"><img src="breakfast2.jpg" alt="Breakfast 2"></div>
+                    <div class="card-content">
+                        <h3>Poached Egg Avocado Toast</h3>
+                        <p>Classic sourdough toast with creamy avocado and a perfect poached egg.</p>
+                        <div class="recipe-meta"><span>⏱ 15 Mins</span><span>🔥 280 Kcal</span></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="meal-strip">LUNCH & DINNER</div>
+            <div class="meal-container">
+                <a href="javascript:void(0)" class="horizontal-card">
+                    <div class="card-image"><img src="Garlic Butter Salmon Recipe.jpg" alt="Salmon"></div>
+                    <div class="card-content">
+                        <h3>Garlic Butter Salmon</h3>
+                        <p>Omega-3 rich salmon fillets baked with fresh herbs and lemon slices.</p>
+                        <div class="recipe-meta"><span>⏱ 25 Mins</span><span>🔥 450 Kcal</span></div>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" class="horizontal-card">
+                    <div class="card-image"><img src="Zucchini Noodles with Pesto.jpg" alt="Zucchini"></div>
+                    <div class="card-content">
+                        <h3>Zucchini Noodles with Pesto</h3>
+                        <p>A light and low-carb dinner featuring fresh basil pesto and "zoodles".</p>
+                        <div class="recipe-meta"><span>⏱ 15 Mins</span><span>🔥 310 Kcal</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="about-page" class="page-content" style="display:none;">
+            <section class="about-section">
+                <div class="about-image-container">
+                    <img src="colette.jpg" alt="Beyza CEVİZ" class="chef-image">
+                </div>
+                <div class="about-text-content">
+                    <h2>Hello from Beyza CEVİZ!</h2>
+                    <p>Hi, I'm Beyza CEVİZ, the passionate heart behind Heal All. My journey into healthy eating began years ago, driven by a desire to feel better and live more vibrantly.</p>
+                    <p>I created Heal All to share my discoveries and make healthy cooking accessible and enjoyable for everyone.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="contact-page" class="page-content" style="display:none;">
+            <section class="contact-section">
+                <h2>Contact Me</h2>
+                <div class="contact-info-text">
+                    <p>Email: info@healall.com</p>
+                </div>
+                <div id="contact-container" style="margin-top: 25px;">
+                    <form id="contact-form" onsubmit="handleContact(event)">
+                        <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                        <div class="form-group"><input type="text" placeholder="Email Address" required></div>
+                        <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+                        <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    <div id="success-message" style="display: none;" class="success-box">
+                        <h3>Success!</h3>
+                        <p>Your message has been sent successfully. I will get back to you soon.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 Copyright - healall.com</p>
+    </footer>
+
+    <script src="java.js"></script>
+</body>
+</html>
