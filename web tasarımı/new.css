@@ -1,44 +1,210 @@
+/* 1. GENEL AYARLAR */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #ecd7b1; color: #333; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
 
-/* NAVIGATION */
-nav { position: fixed; top: 0; width: 100%; background-color: #ead8b7; padding: 15px 0; display: flex; justify-content: center; gap: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 10000; }
+/* 2.  ARAMA */
+nav { position: fixed; top: 0; width: 100%; background-color: #ead8b7; padding: 15px 0; display: flex; justify-content: center; align-items: center; gap: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 10000; }
 nav a { text-decoration: none; color: #333; font-weight: bold; padding: 10px 25px; border: 2px solid #4CAF50; border-radius: 50px; cursor: pointer; transition: 0.3s; }
 nav a:hover { background: #4CAF50; color: white; }
 
-/* MAIN CONTENT */
+.nav-search { position: relative; display: flex; align-items: center; border: 2px solid #4CAF50; border-radius: 50px; padding: 2px 15px; background-color: transparent; transition: 0.3s; margin-left: 10px; }
+.nav-search input { border: none; outline: none; background: none; padding: 8px 0; width: 100px; font-family: inherit; font-weight: bold; color: #333; }
+.nav-search button { background: none; border: none; cursor: pointer; font-size: 16px; padding-left: 5px; color: #333; }
+.nav-search:hover { background-color: rgba(76, 175, 80, 0.1); }
+
+/* Arama Önerileri */
+.suggestions-box { position: absolute; top: 100%; left: 0; width: 100%; background: white; border: 1px solid #ddd; border-radius: 0 0 10px 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 1000; display: none; }
+.suggestion-item { padding: 10px 15px; cursor: pointer; font-size: 14px; border-bottom: 1px solid #eee; font-weight: bold; }
+.suggestion-item:hover { background-color: #f8f8f8; color: #4CAF50; }
+
+/* 3. ANA İÇERİK YAPISI */
 main { flex: 1; max-width: 1100px; margin: 100px auto 40px; padding: 0 20px; width: 100%; }
 .page-content { display: none; opacity: 0; animation: fadeIn 0.5s ease forwards; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* HOME COMPONENTS */
+/* 4. HOME (ANA SAYFA) BİLEŞENLERİ */
 .banner { text-align: center; padding: 60px 20px; background-color: #eaa64d; border-radius: 12px; color: white; margin-bottom: 25px; }
 .slim-motivation { background: #d78f57; color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
 .home-info-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px; }
-.info-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+.info-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none !important; color: inherit !important; display: block; transition: 0.3s; }
+.info-card:hover { transform: translateY(-5px); }
 .info-card-img { width: 100%; height: 180px; }
 .info-card-img img { width: 100%; height: 100%; object-fit: cover; }
 .info-card-text { padding: 20px; text-align: center; }
+.info-card-text h3 { color: #333; margin-bottom: 10px; }
+.info-card-text p { color: #666; font-size: 0.9rem; }
+
 .health-tip-box { background: white; border-left: 5px solid #4CAF50; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-/* RECIPES */
+/* 5. RECIPES  */
 .meal-strip { background-color: #d78f57; color: white; padding: 12px 25px; font-weight: bold; margin: 30px 0 20px; border-radius: 8px; }
-.horizontal-card { display: flex; background: white; border-radius: 15px; overflow: hidden; text-decoration: none; color: inherit; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+.horizontal-card { display: flex; background: white; border-radius: 15px; overflow: hidden; text-decoration: none; color: inherit; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; }
 .horizontal-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
 .card-image { flex: 0 0 35%; height: 180px; }
 .card-image img { width: 100%; height: 100%; object-fit: cover; }
 .card-content { flex: 1; padding: 20px; display: flex; flex-direction: column; justify-content: center; }
-.card-content p { color: #666; font-size: 0.95rem; margin: 5px 0; }
 .recipe-meta { display: flex; gap: 10px; margin-top: 10px; font-weight: bold; color: #d78f57; }
 
-/* ABOUT & CONTACT */
-.about-section, .contact-section { background: white; padding: 40px; border-radius: 15px; text-align: center; }
-.about-image-container { width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: 0 auto 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.chef-image { width: 100%; height: 100%; object-fit: cover; }
-.about-text-content p { margin-bottom: 15px; line-height: 1.6; }
-.contact-info-text { margin-bottom: 20px; line-height: 1.8; color: #444; font-weight: 500; }
-.form-group input, .form-group textarea { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; }
-.submit-btn { background: #4CAF50; color: white; padding: 15px; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
-.success-box { background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; margin-top: 20px; }
+/* 6. MODAL */
+.modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+.modal-content { background-color: white; margin: 5% auto; padding: 30px; width: 90%; max-width: 650px; border-radius: 20px; position: relative; max-height: 85vh; overflow-y: auto; animation: fadeInModal 0.3s ease; }
+@keyframes fadeInModal { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-.site-footer { background: white; padding: 30px; text-align: center; border-top: 1px solid #eee; margin-top: auto; }
+.close-btn { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #333; }
+.modal-img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; }
+
+.recipe-details h2 { color: #d78f57; margin: 15px 0; }
+.recipe-details h3 { color: #4CAF50; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; margin-top: 20px; }
+.recipe-details ul, .recipe-details p { margin-top: 10px; line-height: 1.6; color: #444; padding-left: 20px; }
+
+/* 7. ABOUT & CONTACT & FOOTER */
+.contact-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto; /* Sayfayı ortalar */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contact-section h2 {
+    color: #d78f57;
+    margin-bottom: 20px;
+}
+
+.contact-info-text {
+    margin-bottom: 30px;
+    line-height: 1.8;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Form Elemanları */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #4CAF50;
+}
+
+.form-group textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+
+/* Gönder Butonu */
+.submit-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Başarı Mesajı */
+.success-box {
+    background: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+}
+/* ABOUT US SAYFASI DÜZENLEMESİ */
+.about-section {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+/* Resim Alanı */
+.about-image-container {
+    flex: 0 0 250px; 
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 5px solid #fdf5e6;
+}
+
+.chef-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Yazı Alanı */
+.about-text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text-content h2 {
+    color: #d78f57;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text-content p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .about-text-content {
+        text-align: center;
+    }
+    
+    .about-image-container {
+        flex: 0 0 200px;
+        height: 200px;
+    }
+}

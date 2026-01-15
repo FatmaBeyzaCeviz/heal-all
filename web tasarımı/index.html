@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="new.css">
 </head>
 <body>
+
     <nav>
         <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
         <a href="javascript:void(0)" onclick="showPage('recipes')">Recipes</a>
         <a href="javascript:void(0)" onclick="showPage('about')">About Us</a>
         <a href="javascript:void(0)" onclick="showPage('contact')">Contact</a>
+        
+        <div class="nav-search">
+            <input type="text" id="recipeSearch" placeholder="Search..." onkeyup="searchRecipes()" autocomplete="off">
+            <button type="button">🔍</button>
+            <div id="searchSuggestions" class="suggestions-box"></div>
+        </div>
     </nav>
 
     <main>
@@ -29,27 +36,29 @@
             </div>
 
             <div class="home-info-section">
-                <div class="info-card card-natural">
+                <a href="javascript:void(0)" onclick="openHomeDetail('natural')" class="info-card card-natural">
                     <div class="info-card-img"><img src="natural.jpg" alt="Natural"></div>
                     <div class="info-card-text">
                         <h3>Natural Ingredients</h3>
                         <p>We focus on whole, unprocessed foods to ensure maximum nutrients.</p>
                     </div>
-                </div>
-                <div class="info-card card-easy">
+                </a>
+
+                <a href="javascript:void(0)" onclick="openHomeDetail('easy')" class="info-card card-easy">
                     <div class="info-card-img"><img src="cooking.jpg" alt="Easy"></div>
                     <div class="info-card-text">
                         <h3>Easy Cooking</h3>
                         <p>Healthy eating designed for busy lifestyles and simple kitchens.</p>
                     </div>
-                </div>
-                <div class="info-card card-macros">
+                </a>
+
+                <a href="javascript:void(0)" onclick="openHomeDetail('macros')" class="info-card card-macros">
                     <div class="info-card-img"><img src="macros.jpg" alt="Macros"></div>
                     <div class="info-card-text">
                         <h3>Balanced Macros</h3>
                         <p>Every recipe provides a healthy balance of proteins, fats, and carbs.</p>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="health-tip-box">
@@ -61,42 +70,44 @@
         <div id="recipes-page" class="page-content" style="display:none;">
             <div class="meal-strip">BREAKFAST</div>
             <div class="meal-container">
-                <a href="recipe-b1.html" class="horizontal-card">
+                <div class="horizontal-card" onclick="openRecipe('blueberry')">
                     <div class="card-image"><img src="breakfast1.jpg" alt="Breakfast 1"></div>
                     <div class="card-content">
                         <h3>Blueberry Oatmeal Bowl</h3>
                         <p>A fiber-rich start with organic blueberries and roasted walnuts.</p>
                         <div class="recipe-meta"><span>⏱ 10 Mins</span><span>🔥 320 Kcal</span></div>
                     </div>
-                </a>
-                <a href="recipe-b2.html" class="horizontal-card">
+                </div>
+
+                <div class="horizontal-card" onclick="openRecipe('avocado')">
                     <div class="card-image"><img src="breakfast2.jpg" alt="Breakfast 2"></div>
                     <div class="card-content">
                         <h3>Poached Egg Avocado Toast</h3>
                         <p>Classic sourdough toast with creamy avocado and a perfect poached egg.</p>
                         <div class="recipe-meta"><span>⏱ 15 Mins</span><span>🔥 280 Kcal</span></div>
                     </div>
-                </a>
+                </div>
             </div>
 
             <div class="meal-strip">LUNCH & DINNER</div>
             <div class="meal-container">
-                <a href="javascript:void(0)" class="horizontal-card">
+                <div class="horizontal-card" onclick="openRecipe('salmon')">
                     <div class="card-image"><img src="Garlic Butter Salmon Recipe.jpg" alt="Salmon"></div>
                     <div class="card-content">
                         <h3>Garlic Butter Salmon</h3>
                         <p>Omega-3 rich salmon fillets baked with fresh herbs and lemon slices.</p>
                         <div class="recipe-meta"><span>⏱ 25 Mins</span><span>🔥 450 Kcal</span></div>
                     </div>
-                </a>
-                <a href="javascript:void(0)" class="horizontal-card">
+                </div>
+
+                <div class="horizontal-card" onclick="openRecipe('zucchini')">
                     <div class="card-image"><img src="Zucchini Noodles with Pesto.jpg" alt="Zucchini"></div>
                     <div class="card-content">
                         <h3>Zucchini Noodles with Pesto</h3>
                         <p>A light and low-carb dinner featuring fresh basil pesto and "zoodles".</p>
                         <div class="recipe-meta"><span>⏱ 15 Mins</span><span>🔥 310 Kcal</span></div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
 
@@ -135,6 +146,13 @@
             </section>
         </div>
     </main>
+
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeRecipe()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <p>© 2025 Copyright - healall.com</p>
